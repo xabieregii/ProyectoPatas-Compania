@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar una visita - Patas y Compañía</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="contenedor cabecera">
+            <a href="index.html" class="logo"><img src="../img/logo.png" alt="Logo de Patas y Compañía">Patas y Compañía</a>
+
+
+            <nav>
+                <ul class="menu">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li class="con-submenu">
+                        <a href="#">Nuestros perros</a>
+                        <ul class="submenu">
+                            <li><a href="perros.html">Listado de perros</a></li>
+                            <li><a href="adoptar.html">Cómo adoptar</a></li>
+                        </ul>
+                    </li>
+                    <li class="con-submenu">
+                        <a href="#">Visitas</a>
+                        <ul class="submenu">
+                            <li><a href="reservar.html">Reservar una visita</a></li>
+                            <li><a href="reservas.html">Mis reservas</a></li>
+                        </ul>
+                    </li>
+                    <li class="con-submenu">
+                        <a href="#">El proyecto</a>
+                        <ul class="submenu">
+                            <li><a href="ods.html">Los ODS</a></li>
+                            <li><a href="digitalizacion.html">Digitalización</a></li>
+                        </ul>
+                    </li>
+                    <li class="destacado"><a href="registro.html">Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="bloque">
+            <div class="contenedor">
+                <h1 class="titulo-pagina">Reservar una visita</h1>
+                <p>Elige el día, la hora y el perro con el que quieres pasar la tarde.</p>
+
+                <form action="../php/reservar.php" method="post" class="formulario">
+
+                    <div class="campo">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="ejemplo@gmail.com" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="600123456" pattern="[0-9]{9}" maxlength="9" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="perro">Perro que quieres visitar</label>
+                        <select id="perro" name="perro" required>
+                            <option value="">Elige un perro</option>
+                            <option value="Miel">Miel</option>
+                            <option value="Copo">Copo</option>
+                            <option value="Luna">Luna</option>
+                            <option value="Nieve">Nieve</option>
+                            <option value="Oso">Oso</option>
+                            <option value="Cualquiera">Me da igual</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="fecha">Día de la visita</label>
+                        <input type="text" id="fecha" name="fecha" placeholder="dd/mm/aaaa" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="hora">Hora</label>
+                        <input type="time" id="hora" name="hora" min="10:00" max="19:00" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="acompanantes">Número de acompañantes</label>
+                        <input type="number" id="acompanantes" name="acompanantes" min="0" max="3" value="0" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="duracion">Duración: <span id="minutos">60</span> minutos</label>
+                        <input type="range" id="duracion" name="duracion" min="30" max="120" step="15" value="60" oninput="document.getElementById('minutos').textContent = this.value">
+                    </div>
+
+                    <fieldset class="campo ancho">
+                        <legend>Qué te gustaría hacer</legend>
+                        <div class="opciones">
+                            <label class="opcion"><input type="radio" name="actividad" value="paseo" checked> Dar un paseo</label>
+                            <label class="opcion"><input type="radio" name="actividad" value="jardin"> Sentarme en el jardín</label>
+                            <label class="opcion"><input type="radio" name="actividad" value="juego"> Jugar un rato</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="campo ancho">
+                        <legend>Necesidades especiales</legend>
+                        <div class="opciones">
+                            <label class="opcion"><input type="checkbox" name="necesidades[]" value="movilidad"> Movilidad reducida</label>
+                            <label class="opcion"><input type="checkbox" name="necesidades[]" value="acompanante"> Necesito que me acompañen</label>
+                            <label class="opcion"><input type="checkbox" name="necesidades[]" value="sentado"> Prefiero estar sentado</label>
+                        </div>
+                    </fieldset>
+
+                    <div class="campo ancho">
+                        <label for="comentarios">Comentarios</label>
+                        <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+                    </div>
+
+                    <div class="campo ancho">
+                        <button type="submit" class="boton">Reservar visita</button>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="contenedor">
+            <p>&copy; 2026 Patas &amp; Compañia <br> Xabier Egido - Ander Ambrosio - Kevin Daniel </p>
+        </div>
+    </footer>
+
+</body>
+</html>
