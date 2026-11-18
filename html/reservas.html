@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis reservas - Patas y Compañía</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="contenedor cabecera">
+            <a href="../index.html" class="logo"><img src="./../img/logo.png" alt="Logo de Patas y Compañía">Patas y Compañía</a>
+
+
+            <nav>
+                <ul class="menu">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li class="con-submenu">
+                        <a href="#">Nuestros perros</a>
+                        <ul class="submenu">
+                            <li><a href="perros.html">Listado de perros</a></li>
+                            <li><a href="adoptar.html">Cómo adoptar</a></li>
+                        </ul>
+                    </li>
+                    <li class="con-submenu">
+                        <a href="#">Visitas</a>
+                        <ul class="submenu">
+                            <li><a href="reservar.html">Reservar una visita</a></li>
+                            <li><a href="reservas.html">Mis reservas</a></li>
+                        </ul>
+                    </li>
+                    <li class="con-submenu">
+                        <a href="#">El proyecto</a>
+                        <ul class="submenu">
+                            <li><a href="ods.html">Los ODS</a></li>
+                            <li><a href="digitalizacion.html">Digitalización</a></li>
+                        </ul>
+                    </li>
+                    <li class="destacado"><a href="registro.html">Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="bloque">
+            <div class="contenedor">
+                <h1 class="titulo-pagina">Mis reservas</h1>
+                <p>Escribe tu correo para ver las visitas que tienes reservadas.</p>
+
+                <form action="../php/reservas.php" method="post" class="buscador">
+                    <label for="email">Correo electrónico</label>
+                    <input type="search" id="email" name="email" placeholder="ejemplo@gmail.com">
+                    <button type="submit" class="boton">Buscar</button>
+                </form>
+
+                <div class="tabla">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nº</th>
+                                <th>Perro</th>
+                                <th>Día</th>
+                                <th>Hora</th>
+                                <th>Duración</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Nieve</td>
+                                <td>2026-11-05</td>
+                                <td>17:00</td>
+                                <td>60 min</td>
+                                <td><a href="#">Ver</a> - <a href="#">Editar</a></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Oso</td>
+                                <td>2026-11-12</td>
+                                <td>11:30</td>
+                                <td>90 min</td>
+                                <td><a href="#">Ver</a> - <a href="#">Editar</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="contenedor">
+            <p>&copy; 2026 Patas &amp; Compañia <br> Xabier Egido - Ander Ambrosio - Kevin Daniel </p>
+        </div>
+    </footer>
+
+</body>
+</html>

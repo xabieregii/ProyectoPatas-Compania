@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros perros - Patas y Compañía</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="contenedor cabecera">
+                   <a href="../index.html" class="logo"><img src="../img/logo.png" alt="Logo de Patas y Compañía">Patas y Compañía</a>
+
+            <nav>
+                <ul class="menu">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li class="con-submenu">
+                        <a href="#">Nuestros perros</a>
+                        <ul class="submenu">
+                            <li><a href="perros.html">Listado de perros</a></li>
+                            <li><a href="adoptar.html">Cómo adoptar</a></li>
+                        </ul>
+                    </li>
+                    <li class="con-submenu">
+                        <a href="#">Visitas</a>
+                        <ul class="submenu">
+                            <li><a href="reservar.html">Reservar una visita</a></li>
+                            <li><a href="reservas.html">Mis reservas</a></li>
+                        </ul>
+                    </li>
+                    <li class="con-submenu">
+                        <a href="#">El proyecto</a>
+                        <ul class="submenu">
+                            <li><a href="ods.html">Los ODS</a></li>
+                            <li><a href="digitalizacion.html">Digitalización</a></li>
+                        </ul>
+                    </li>
+                    <li class="destacado"><a href="registro.html">Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="bloque">
+            <div class="contenedor">
+                <h1 class="titulo-pagina">Nuestros perros</h1>
+                <p>Estos son los perros que ahora mismo esperan una familia. Puedes buscar por nombre o por carácter.</p>
+
+                <form action="../php/perros.php" method="post" class="buscador">
+                    <label for="texto">Buscar perro</label>
+                    <input type="search" id="texto" name="texto" placeholder="Tranquilo, cachorro, Oso...">
+                    <button type="submit" class="boton">Buscar</button>
+                </form>
+
+                <div class="rejilla">
+                    <article class="perro">
+                      <img src="../img/perro1.jpg" alt="...">
+                        <h3>Miel</h3>
+                        <p>Cachorro de 4 meses. Juguetón y cariñoso, le encanta que le hablen.</p>
+                        <p><a href="#">Ver ficha</a></p>
+                    </article>
+                     <article class="perro">
+                        <img src="../img/perro2.jpg" alt="Cachorro de husky sentado sobre la hierba">
+                        <h3>Copo</h3>
+                        <p>Cachorro de 5 meses. Muy activo, ideal para paseos largos.</p>
+                        <p><a href="#">Ver ficha</a></p>
+                    </article>
+                    <article class="perro">
+                        <img src="../img/perro3.jpg" alt="Perro de pelo negro, blanco y marrón con la cabeza ladeada">
+                        <h3>Luna</h3>
+                        <p>Adulta de 3 años. Atenta e inteligente, aprende rápido.</p>
+                        <p><a href="#">Ver ficha</a></p>
+                    </article>
+                    <article class="perro">
+                        <img src="../img/perro4.jpg" alt="Perra blanca con un lazo rosa en el cuello mirando hacia arriba">
+                        <h3>Nieve</h3>
+                        <p>Adulta de 8 años. Tranquila y dulce, perfecta para sentarse a su lado.</p>
+                        <p><a href="#">Ver ficha</a></p>
+                    </article>
+                    <article class="perro">
+                        <img src="../img/perro5.jpg" alt="Perro grande de pelo negro, blanco y marrón tumbado en la hierba">
+                        <h3>Oso</h3>
+                        <p>Adulto de 6 años. Grande y bonachón, le gusta estar acompañado.</p>
+                        <p><a href="#">Ver ficha</a></p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="contenedor">
+            <p>&copy; 2026 Patas &amp; Compañia <br> Xabier Egido - Ander Ambrosio - Kevin Daniel </p>
+        </div>
+    </footer>
+
+</body>
+</html>
