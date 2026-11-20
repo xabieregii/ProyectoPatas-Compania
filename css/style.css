@@ -403,8 +403,6 @@ fieldset.campo {
     margin-bottom: 8px;
 }
 
-/* ---------- Validación de formularios (errores y avisos) ---------- */
-
 .alerta-error,
 .alerta-ok {
     max-width: 800px;
@@ -437,4 +435,71 @@ fieldset.campo {
 .buscador .error {
     flex-basis: 100%;
     margin-top: 0;
+}
+
+.campo .ayuda {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.95rem;
+    color: #555555;
+}
+
+.campo input.invalido,
+.campo select.invalido,
+.campo textarea.invalido,
+.buscador input.invalido {
+    border-color: #b3261e;
+    background-color: #fff7f6;
+}
+
+.resumen {
+    max-width: 700px;
+    margin: 20px 0;
+}
+
+.resumen li {
+    margin-bottom: 6px;
+}
+
+@media (max-width: 900px) {
+    .cabecera {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu .destacado {
+        margin-left: 0;
+    }
+
+    .submenu {
+        position: static;
+        box-shadow: none;
+    }
+
+    .tres-columnas {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .dos-columnas {
+        grid-template-columns: 1fr;
+    }
+
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .portada {
+        padding: 50px 0;
+    }
+
+    .portada h1 {
+        font-size: 2rem;
+    }
 }
