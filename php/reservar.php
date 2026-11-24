@@ -1,5 +1,6 @@
 <?php
 require_once 'funciones.php';
+require_once 'api.php';
 
 $perros = [
     ''           => 'Elige un perro',
@@ -83,21 +84,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'comentarios'  => $d['comentarios'],
         ];
 
+        $creado = llamarApi('POST', API_URL, $datosValidados);
+
         cabecera('Reservar una visita');
         ?>
                 <h1 class="titulo-pagina">¡Visita reservada!</h1>
-                <div class="alerta-ok" role="status">
-                    Hemos recibido tu reserva, <strong><?= e($d['nombre']) ?></strong>.
-                </div>
-                <ul class="lista resumen">
-                    <li><strong>Perro:</strong> <?= e($perros[$d['perro']]) ?></li>
-                    <li><strong>Día:</strong> <?= e($d['fecha']) ?></li>
-                    <li><strong>Hora:</strong> <?= e($d['hora']) ?></li>
-                    <li><strong>Duración:</strong> <?= (int) $d['duracion'] ?> minutos</li>
-                    <li><strong>Acompañantes:</strong> <?= (int) $d['acompanantes'] ?></li>
-                    <li><strong>Actividad:</strong> <?= e($actividades[$d['actividad']]) ?></li>
-                </ul>
-                <a href="reservas.php" class="boton">Ver mis reservas</a>
+                <?php if ($creado === null): ?>
+                    <div class="alerta-error" role="alert">No se ha podido conectar con la API. Comprueba que está arrancada con npm start.</div>
+                <?php elseif (isset($creado['error'])): ?>
+                    <div class="alerta-error" role="alert"><?= e($creado['error']) ?></div>
+                <?php else: ?>
+                    <div class="alerta-ok" role="status">
+                        Hemos recibido tu reserva nº <strong><?= (int) ($creado['id'] ?? 0) ?></strong>, <strong><?= e($d['nombre']) ?></strong>.
+                    </div>
+                    <ul class="lista resumen">
+                        <li><strong>Perro:</strong> <?= e($perros[$d['perro']]) ?></li>
+                        <li><strong>Día:</strong> <?= e($d['fecha']) ?></li>
+                        <li><strong>Hora:</strong> <?= e($d['hora']) ?></li>
+                        <li><strong>Duración:</strong> <?= (int) $d['duracion'] ?> minutos</li>
+                        <li><strong>Acompañantes:</strong> <?= (int) $d['acompanantes'] ?></li>
+                        <li><strong>Actividad:</strong> <?= e($actividades[$d['actividad']]) ?></li>
+                    </ul>
+                    <a href="reservas.php" class="boton">Ver mis reservas</a>
+                <?php endif; ?>
         <?php
         pie();
         exit;

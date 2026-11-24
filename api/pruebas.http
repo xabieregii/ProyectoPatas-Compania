@@ -1,0 +1,55 @@
+###Listar todas las visitas (GET)
+GET http://localhost:3000/api/visitas
+
+###Buscar visitas por texto (GET con query string)
+GET http://localhost:3000/api/visitas?texto=nieve
+
+###Obtener una visita por ID (GET :id)
+GET http://localhost:3000/api/visitas/1
+
+###Obtener una visita inexistente (debe devolver 404)
+GET http://localhost:3000/api/visitas/999
+
+###Crear una nueva visita (POST)
+POST http://localhost:3000/api/visitas
+Content-Type: application/json
+
+{
+    "nombre": "Luis Pérez",
+    "email": "luis@ejemplo.com",
+    "telefono": "622334455",
+    "perro": "Miel",
+    "fecha": "2026-12-15",
+    "hora": "16:30",
+    "acompanantes": 1,
+    "duracion": 60,
+    "actividad": "paseo",
+    "necesidades": ["movilidad"],
+    "comentarios": "Visita de prueba"
+}
+
+###Crear visita sin campos obligatorios debe devolver 400
+POST http://localhost:3000/api/visitas
+Content-Type: application/json
+
+{
+    "nombre": "Luis Pérez"
+}
+
+###Modificar una visita existente (PUT :id)
+PUT http://localhost:3000/api/visitas/1
+Content-Type: application/json
+
+{
+    "nombre": "Carmen López",
+    "email": "carmen@ejemplo.com",
+    "telefono": "611223344",
+    "perro": "Nieve",
+    "fecha": "2026-12-10",
+    "hora": "18:00",
+    "acompanantes": 1,
+    "duracion": 90,
+    "actividad": "jardin",
+    "necesidades": ["sentado"],
+    "comentarios": "Hora actualizada"
+}
