@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Los ODS - Patas y Compañía</title>
+    <title>Digitalización - Patas y Compañía</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
     <header>
         <div class="contenedor cabecera">
-            <a href="../index.html" class="logo"><img src="../img/logo.png" alt="Logo de Patas y Compañía">Patas y Compañía</a>
+            <a href="../index.html" class="logo">
+                <canvas id="logoCanvas" width="56" height="56" aria-label="Logo de Patas y Compañía"></canvas>
+                Patas y Compañía
+            </a>
 
             <nav>
                 <ul class="menu">
@@ -46,25 +49,21 @@
 
         <section class="bloque">
             <div class="contenedor">
-                <h1 class="titulo-pagina">Los ODS en Patas y Compañía</h1>
-                <p>Los Objetivos de Desarrollo Sostenible son 17 metas de la Agenda 2030 para mejorar el mundo. Nuestro centro trabaja sobre cuatro de ellos.</p>
+                <h1 class="titulo-pagina">Digitalización del centro</h1>
+                <p>En Patas y Compañía usamos la tecnología para organizar las visitas, mantener al día las fichas de los perros y facilitar que cualquier persona mayor o familiar pueda gestionar su cita sin complicaciones.</p>
 
-                <div class="rejilla">
+                <div class="tres-columnas">
                     <div class="tarjeta">
-                        <h3>ODS 3: Salud y bienestar</h3>
-                        <p>Pasar tiempo con un perro mejora el ánimo, invita a moverse y reduce la sensación de soledad.</p>
+                        <h3>Gestión de visitas y reservas</h3>
+                        <p>Permite elegir día, hora, duración y perro disponible evitando solapamientos y facilitando el seguimiento de las citas.</p>
                     </div>
                     <div class="tarjeta">
-                        <h3>ODS 10: Reducción de las desigualdades</h3>
-                        <p>Hacemos la web fácil de usar para que las personas mayores no queden fuera de lo digital.</p>
+                        <h3>Fichas y carácter de los perros</h3>
+                        <p>Centraliza la edad, energía y necesidades de cada animal para recomendar el encuentro más adecuado para cada persona.</p>
                     </div>
                     <div class="tarjeta">
-                        <h3>ODS 11: Ciudades y comunidades sostenibles</h3>
-                        <p>Creamos un punto de encuentro en el barrio donde vecinos de todas las edades se conocen.</p>
-                    </div>
-                    <div class="tarjeta">
-                        <h3>ODS 17: Alianzas para lograr los objetivos</h3>
-                        <p>Trabajamos junto a protectoras, residencias y voluntarios para llegar a más personas.</p>
+                        <h3>Interfaz clara y accesible</h3>
+                        <p>Tipografía legible, buen contraste y menús sencillos pensados para que mayores, cuidadores o voluntarios lo usen con comodidad.</p>
                     </div>
                 </div>
             </div>
@@ -72,19 +71,40 @@
 
         <section class="bloque gris">
             <div class="contenedor">
-                <h2>El problema que queremos resolver</h2>
-                <p>Hay personas mayores que pasan días enteros sin hablar con nadie y perros que esperan meses en un refugio. Juntarlos ayuda a los dos.</p>
-                <a href="digitalizacion.html" class="boton">Cómo lo digitalizamos</a>
+                <h2>Cómo ayuda la web en el día a día</h2>
+                <div class="dos-columnas">
+                    <div>
+                        <h3>Para las personas mayores y sus familias</h3>
+                        <p>Consultar horarios, reservar una tarde o revisar una cita activa toma solo unos minutos, tanto desde casa como con ayuda de un familiar o educador del centro.</p>
+                    </div>
+                    <div>
+                        <h3>Para el equipo y las protectoras</h3>
+                        <p>Se lleva un control ordenado de acompañantes, necesidades especiales y preferencias de paseo o jardín, mejorando la coordinación diaria y el bienestar de los perros.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bloque">
+            <div class="contenedor">
+                <h2>Próximos pasos del proyecto</h2>
+                <ul class="lista">
+                    <li>Conectar los formularios de registro, búsqueda de perros y reservas con base de datos.</li>
+                    <li>Registrar el historial de paseos y adaptaciones de cada perro tras cada visita.</li>
+                    <li>Mejorar la consulta rápida de próximas citas para el personal del centro.</li>
+                </ul>
+                <a href="ods.html" class="boton">Ver los ODS del proyecto</a>
             </div>
         </section>
 
     </main>
 
     <footer>
-        <div class="contenedor">
-            <p>&copy; 2026 Patas &amp; Compañía <br> Xabier Egido - Ander Ambrosio - Kevin Daniel </p>
-        </div>
-    </footer>
+    <div class="contenedor">
+        <p>&copy; 2026 Patas y Compañía <br> Xabier Egido - Ander Ambrosio - Kevin Daniel</p>
+    </div>
+</footer>
 
+    <script src="../js/logo.js"></script>
 </body>
 </html>
