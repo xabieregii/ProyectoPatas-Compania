@@ -1,27 +1,44 @@
 <?php
 require_once 'funciones.php';
+require_once 'api.php';
 
 $d = [];
 $errores = [];
-$reservas = null;  
+$reservas = null;
+$errorApi = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $d['email'] = dato('email');
 
-    $errores = array_filter([
-        'email' => val_email($d['email']),
-    ]);
+    if ($d['email'] !== '') {
+        $errores = array_filter([
+            'email' => val_email($d['email']),
+        ]);
+    }
 
     if (!$errores) {
-        $reservas = [];
+        $url = API_URL;
+        if ($d['email'] !== '') {
+            $url .= '?texto=' . urlencode(mb_strtolower($d['email'], 'UTF-8'));
+        }
+
+        $resultado = llamarApi('GET', $url);
+
+        if ($resultado === null) {
+            $errorApi = true;
+        } elseif (isset($resultado['error'])) {
+            $errores['email'] = $resultado['error'];
+        } else {
+            $reservas = is_array($resultado) ? $resultado : [];
+        }
     }
 }
 
 cabecera('Mis reservas');
 ?>
                 <h1 class="titulo-pagina">Mis reservas</h1>
-                <p>Escribe tu correo para ver las visitas que tienes reservadas.</p>
+                <p>Escribe tu correo para ver las visitas que tienes reservadas (o déjalo vacío para ver todas).</p>
 
                 <form action="reservas.php" method="post" class="buscador" novalidate>
                     <label for="email">Correo electrónico</label>
@@ -30,7 +47,9 @@ cabecera('Mis reservas');
                     <?php mensaje_error($errores, 'email'); ?>
                 </form>
 
-                <?php if ($reservas !== null): ?>
+                <?php if ($errorApi): ?>
+                    <div class="alerta-error" role="alert">No se ha podido conectar con la API. Comprueba que está arrancada con npm start.</div>
+                <?php elseif ($reservas !== null): ?>
 
                     <?php if (!$reservas): ?>
                         <div class="alerta-ok" role="status">No hemos encontrado reservas para <strong><?= e($d['email']) ?></strong>.</div>
