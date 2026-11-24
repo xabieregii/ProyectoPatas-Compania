@@ -10,7 +10,10 @@
 
     <header>
         <div class="contenedor cabecera">
-            <a href="index.html" class="logo"><img src="img/logo.png" alt="Logo de Patas y Compañía">Patas y Compañía</a>
+            <a href="index.html" class="logo">
+                <canvas id="logoCanvas" width="56" height="56" aria-label="Logo de Patas y Compañía"></canvas>
+                Patas y Compañía
+            </a>
 
             <nav>
                 <ul class="menu">
@@ -155,12 +158,23 @@
             </div>
         </section>
 
+        <section class="bloque">
+            <div class="contenedor">
+                <h2>Aqui una breve explicación de el porque de nuestro trabajo</h2>
+                <p>Descubre en este vídeo cómo funcionan las visitas y el vínculo que se crea entre nuestros mayores y los perros.</p>
+                <video class="video-centro" controls>
+                    <source src="src/videoperros.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo HTML5.
+                </video>
+            </div>
+        </section>
 
     </main>
 
     <footer>
-        <div class="contenedor">
-            <p>Patas y Compañía, proyecto ficticio del CFGS de Desarrollo de Aplicaciones Web</p>
+        <div class="contenedor pie-footer">
+            <p>&copy; 2026 Patas &amp; Compañía <br> Xabier Egido - Ander Ambrosio - Kevin Daniel</p>
+            <audio class="audio-footer" src="src/audiomusica.mp3" controls loop></audio>
         </div>
     </footer>
 

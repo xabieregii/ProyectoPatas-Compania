@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Los ODS - Patas y Compañía</title>
+    <title>Cómo adoptar - Patas y Compañía</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
     <header>
         <div class="contenedor cabecera">
-            <a href="../index.html" class="logo"><img src="../img/logo.png" alt="Logo de Patas y Compañía">Patas y Compañía</a>
+            <a href="../index.html" class="logo">
+                <canvas id="logoCanvas" width="56" height="56" aria-label="Logo de Patas y Compañía"></canvas>
+                Patas y Compañía
+            </a>
 
             <nav>
                 <ul class="menu">
@@ -46,25 +49,21 @@
 
         <section class="bloque">
             <div class="contenedor">
-                <h1 class="titulo-pagina">Los ODS en Patas y Compañía</h1>
-                <p>Los Objetivos de Desarrollo Sostenible son 17 metas de la Agenda 2030 para mejorar el mundo. Nuestro centro trabaja sobre cuatro de ellos.</p>
+                <h1 class="titulo-pagina">Cómo adoptar un perro</h1>
+                <p>Si tras pasar varias tardes juntos sentís que encajáis, os acompañamos paso a paso para que la adopción sea tranquila, segura y adaptada a vuestro ritmo.</p>
 
-                <div class="rejilla">
+                <div class="tres-columnas">
                     <div class="tarjeta">
-                        <h3>ODS 3: Salud y bienestar</h3>
-                        <p>Pasar tiempo con un perro mejora el ánimo, invita a moverse y reduce la sensación de soledad.</p>
+                        <h3>1. Conoce al perro en las visitas</h3>
+                        <p>Comparte paseos o ratos tranquilos en el centro para comprobar cómo os lleváis y qué nivel de energía se adapta mejor a ti.</p>
                     </div>
                     <div class="tarjeta">
-                        <h3>ODS 10: Reducción de las desigualdades</h3>
-                        <p>Hacemos la web fácil de usar para que las personas mayores no queden fuera de lo digital.</p>
+                        <h3>2. Entrevista y valoración</h3>
+                        <p>Hablamos contigo y, si procede, con tu familia o cuidador sobre tu vivienda, rutina diaria y necesidades del perro.</p>
                     </div>
                     <div class="tarjeta">
-                        <h3>ODS 11: Ciudades y comunidades sostenibles</h3>
-                        <p>Creamos un punto de encuentro en el barrio donde vecinos de todas las edades se conocen.</p>
-                    </div>
-                    <div class="tarjeta">
-                        <h3>ODS 17: Alianzas para lograr los objetivos</h3>
-                        <p>Trabajamos junto a protectoras, residencias y voluntarios para llegar a más personas.</p>
+                        <h3>3. Adaptación y acogida</h3>
+                        <p>Resolvemos dudas antes y después de llevarlo a casa para asegurar que tanto la persona como el perro se adapten bien.</p>
                     </div>
                 </div>
             </div>
@@ -72,19 +71,40 @@
 
         <section class="bloque gris">
             <div class="contenedor">
-                <h2>El problema que queremos resolver</h2>
-                <p>Hay personas mayores que pasan días enteros sin hablar con nadie y perros que esperan meses en un refugio. Juntarlos ayuda a los dos.</p>
-                <a href="digitalizacion.html" class="boton">Cómo lo digitalizamos</a>
+                <h2>Qué tenemos en cuenta</h2>
+                <div class="dos-columnas">
+                    <div>
+                        <h3>Compatibilidad real</h3>
+                        <p>No todos los perros necesitan lo mismo: algunos prefieren sofás y caricias suaves, mientras que otros disfrutan de caminatas más activas.</p>
+                    </div>
+                    <div>
+                        <h3>Apoyo continuo</h3>
+                        <p>Te orientamos en los trámites y seguimos a tu disposición para resolver cualquier duda durante las primeras semanas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bloque">
+            <div class="contenedor">
+                <h2>Antes de dar el paso</h2>
+                <ul class="lista">
+                    <li>Revisa la ficha y el carácter de cada perro en el listado.</li>
+                    <li>Reserva una visita para conocerlo en persona sin prisas.</li>
+                    <li>Comenta con el equipo cualquier duda sobre paseos, cuidados o apoyo familiar.</li>
+                </ul>
+                <a href="../php/reservar.php" class="boton">Reservar una visita</a>
             </div>
         </section>
 
     </main>
 
     <footer>
-        <div class="contenedor">
-            <p>&copy; 2026 Patas &amp; Compañía <br> Xabier Egido - Ander Ambrosio - Kevin Daniel </p>
-        </div>
+    <div class="contenedor">
+        <p>&copy; 2026 Patas y Compañía <br> Xabier Egido - Ander Ambrosio - Kevin Daniel</p>
+    </div>
     </footer>
 
+    <script src="../js/logo.js"></script>
 </body>
 </html>
