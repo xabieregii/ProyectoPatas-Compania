@@ -68,6 +68,10 @@ cabecera('Detalle de la visita');
                     </ul>
 
                     <a href="editar.php?id=<?= (int) $visita['id'] ?>" class="boton">Editar visita</a>
+                    <form action="eliminar.php" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<?= (int) $visita['id'] ?>">
+                        <button type="submit" class="boton" style="background-color:#b3261e;color:#ffffff;border:none;cursor:pointer;font-family:inherit;font-size:inherit;">Borrar visita</button>
+                    </form>
                     <a href="reservas.php" class="boton">Volver a mis reservas</a>
                 <?php endif; ?>
 <?php

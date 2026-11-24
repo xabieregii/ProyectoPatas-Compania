@@ -144,6 +144,25 @@ header {
     color: #ffffff;
 }
 
+.boton-ficha {
+    display: inline-block;
+    background-color: #1d5c63;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 9px 16px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.boton-ficha:hover,
+.boton-ficha:focus {
+    background-color: #e5841b;
+    color: #1f1200;
+    transform: translateY(-1px);
+}
+
 .bloque {
     padding: 60px 0;
 }
@@ -224,7 +243,7 @@ footer {
 
 .rejilla {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 25px;
     margin-bottom: 30px;
 }
@@ -234,18 +253,25 @@ footer {
     width: 100%;
     height: 240px;
     object-fit: cover;
+    object-position: center 20%;
     border-radius: 10px;
 }
 
 .perro {
+    display: flex;
+    flex-direction: column;
     background-color: #ffffff;
     border: 2px solid #cfdfe1;
     border-radius: 10px;
     overflow: hidden;
+    max-width: 340px;
+    width: 100%;
 }
 
 .perro img {
     height: 230px;
+    object-fit: cover;
+    object-position: center 20%;
     border-radius: 0;
 }
 
@@ -255,8 +281,13 @@ footer {
 }
 
 .perro p {
-    margin: 0 18px 18px 18px;
+    margin: 0 18px 16px 18px;
     font-size: 1rem;
+}
+
+.perro .accion-ficha {
+    margin-top: auto;
+    margin-bottom: 18px;
 }
 
 .menu .destacado {
@@ -546,5 +577,9 @@ fieldset.campo {
     .audio-footer {
         grid-column: 1;
         justify-self: center;
+    }
+
+    .perro {
+        max-width: 100%;
     }
 }

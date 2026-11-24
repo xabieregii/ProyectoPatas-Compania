@@ -4,30 +4,18 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//Lee el JSON que llega en el cuerpo de POST y PUT
 app.use(express.json());
 
-//Array en memoria de objetos clave-valor con id numérico único
-let visitas = [
-    {
-        id: 1,
-        nombre: 'Carmen López',
-        email: 'carmen@ejemplo.com',
-        telefono: '611223344',
-        perro: 'Nieve',
-        fecha: '2026-12-10',
-        hora: '17:00',
-        acompanantes: 0,
-        duracion: 60,
-        actividad: 'jardin',
-        necesidades: ['sentado'],
-        comentarios: 'Primera visita'
+let visitas = [];
+let siguienteId = 1;
+
+function reordenarIds() {
+    for (let i = 0; i < visitas.length; i++) {
+        visitas[i].id = i + 1;
     }
-];
+    siguienteId = visitas.length + 1;
+}
 
-let siguienteId = 2;
-
-//Comprueba que existan los campos obligatorios
 function validarVisita(body) {
     if (!body || typeof body !== 'object') {
         return 'No se han recibido datos en formato JSON.';
@@ -37,13 +25,12 @@ function validarVisita(body) {
         const campo = obligatorios[i];
         const valor = body[campo];
         if (valor === undefined || valor === null || String(valor).trim() === '') {
-        return `Falta el campo obligatorio: ${campo}.`;
+            return `Falta el campo obligatorio: ${campo}.`;
         }
     }
     return null;
 }
 
-//GET /api/visitas devuelve todas o filtra por ?texto=...
 app.get('/api/visitas', (req, res) => {
     const texto = req.query.texto ? String(req.query.texto).trim().toLowerCase() : '';
     if (!texto) {
@@ -55,24 +42,22 @@ app.get('/api/visitas', (req, res) => {
         const v = visitas[i];
         const textoRegistro = `${v.nombre} ${v.email} ${v.perro} ${v.actividad}`.toLowerCase();
         if (textoRegistro.includes(texto)) {
-        filtradas.push(v);
+            filtradas.push(v);
         }
     }
     return res.status(200).json(filtradas);
 });
 
-// GET /api/visitas/:id busca un elemento por su id
 app.get('/api/visitas/:id', (req, res) => {
     const id = Number(req.params.id);
     for (let i = 0; i < visitas.length; i++) {
         if (visitas[i].id === id) {
-        return res.status(200).json(visitas[i]);
+            return res.status(200).json(visitas[i]);
         }
     }
     return res.status(404).json({ error: 'Visita no encontrada.' });
 });
 
-// POST /api/visitas crea un elemento y responde 201 + cabecera Location
 app.post('/api/visitas', (req, res) => {
     const error = validarVisita(req.body);
     if (error) {
@@ -99,15 +84,14 @@ app.post('/api/visitas', (req, res) => {
     return res.status(201).json(nuevaVisita);
 });
 
-//PUT /api/visitas/:id reemplaza el elemento conservando su id
 app.put('/api/visitas/:id', (req, res) => {
     const id = Number(req.params.id);
     let indice = -1;
 
     for (let i = 0; i < visitas.length; i++) {
         if (visitas[i].id === id) {
-        indice = i;
-        break;
+            indice = i;
+            break;
         }
     }
 
@@ -139,6 +123,26 @@ app.put('/api/visitas/:id', (req, res) => {
     return res.status(200).json(actualizada);
 });
 
+app.delete('/api/visitas/:id', (req, res) => {
+    const id = Number(req.params.id);
+    let indice = -1;
+
+    for (let i = 0; i < visitas.length; i++) {
+        if (visitas[i].id === id) {
+            indice = i;
+            break;
+        }
+    }
+
+    if (indice === -1) {
+        return res.status(404).json({ error: 'Visita no encontrada.' });
+    }
+
+    const eliminada = visitas.splice(indice, 1)[0];
+    reordenarIds();
+    return res.status(200).json(eliminada);
+});
+
 app.listen(PORT, () => {
-  console.log(`Api escuchando en http://localhost:${PORT}`);
+    console.log(`Api escuchando en http://localhost:${PORT}`);
 });

@@ -1,8 +1,7 @@
 <?php
 define('API_URL', 'http://localhost:3000/api/visitas');
 
-function llamarApi($metodo, $url, $datos = null)
-{
+function llamarApi($metodo, $url, $datos = null) {
     $opciones = [
         'http' => [
             'method'        => $metodo,

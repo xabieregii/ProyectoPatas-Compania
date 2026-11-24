@@ -1,27 +1,18 @@
 <?php
-// funciones.php
-// Validaciones (TODAS en PHP, nada en el HTML) y plantilla común de las páginas PHP.
 
 date_default_timezone_set('Europe/Madrid');
 
-/* ======================================================================
-   LECTURA DE DATOS
-   ====================================================================== */
-
-/** Campo de $_POST como texto, sin espacios al principio ni al final ('' si no existe). */
 function dato(string $campo): string
 {
     $v = $_POST[$campo] ?? '';
     return is_string($v) ? trim($v) : '';
 }
 
-/** Escapa texto para mostrarlo en HTML (evita XSS). */
 function e(string $v): string
 {
     return htmlspecialchars($v, ENT_QUOTES, 'UTF-8');
 }
 
-/** Longitud en caracteres (cuenta bien las tildes y la ñ). */
 function largo(string $v): int
 {
     return mb_strlen($v, 'UTF-8');
@@ -235,7 +226,6 @@ function alerta_errores(array $errores): void
     echo 'Corrígelos (están marcados en rojo) y vuelve a enviar el formulario.</div>';
 }
 
-
 function campo_input(string $id, string $etiqueta, string $tipo, array $d, array $errores, array $op = []): void
 {
     $valor = $tipo === 'password' ? '' : ($d[$id] ?? '');
@@ -254,7 +244,6 @@ function campo_input(string $id, string $etiqueta, string $tipo, array $d, array
     mensaje_error($errores, $id);
     echo '</div>';
 }
-
 
 function campo_select(string $id, string $etiqueta, array $opciones, array $d, array $errores): void
 {
@@ -283,7 +272,6 @@ function campo_textarea(string $id, string $etiqueta, array $d, array $errores, 
     echo '</div>';
 }
 
-
 function cabecera(string $titulo): void
 {
     ?>
@@ -299,7 +287,10 @@ function cabecera(string $titulo): void
 
     <header>
         <div class="contenedor cabecera">
-            <a href="../index.html" class="logo"><img src="../img/logo.png" alt="Logo de Patas y Compañía">Patas y Compañía</a>
+            <a href="../index.html" class="logo">
+                <canvas id="logoCanvas" width="56" height="56" aria-label="Logo de Patas y Compañía"></canvas>
+                Patas y Compañía
+            </a>
 
             <nav>
                 <ul class="menu">
@@ -347,11 +338,13 @@ function pie(): void
     </main>
 
     <footer>
-        <div class="contenedor">
-            <p>&copy; 2026 Patas &amp; Compañía <br> Xabier Egido - Ander Ambrosio - Kevin Daniel </p>
+        <div class="contenedor pie-footer">
+            <p>&copy; 2026 Patas &amp; Compañía <br> Xabier Egido - Ander Ambrosio - Kevin Daniel</p>
+            <audio class="audio-footer" src="../src/audiomusica.mp3" controls loop></audio>
         </div>
     </footer>
 
+    <script src="../js/logo.js"></script>
 </body>
 </html>
     <?php
